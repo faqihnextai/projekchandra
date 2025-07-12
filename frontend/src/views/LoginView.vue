@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
-import { useRouter } from 'vue-router'; // Pastikan ini diimport dengan benar
+import { useRouter } from 'vue-router';
 
 const email = ref('');
 const password = ref('');
@@ -93,49 +93,112 @@ const handleLogin = async () => {
 </template>
 
 <style scoped>
-/* Styling yang sama seperti sebelumnya */
+/* Styling untuk tema Cyberpunk */
 .login-container {
-    max-width: 400px;
-    margin: 50px auto;
+    /* Default untuk mobile dan ukuran kecil */
+    width: 90%; /* Menggunakan persentase untuk lebar adaptif */
+    max-width: 350px; /* Batas lebar maksimum untuk mobile */
+    margin: 30px auto; /* Margin atas/bawah lebih kecil untuk mobile */
     padding: 20px;
-    border: 1px solid #ccc;
+    background-color: rgba(10, 10, 10, 0.9);
+    border: 1px solid #00ffff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
     text-align: center;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box; /* Penting untuk responsivitas */
 }
+
+/* Untuk ukuran tablet dan laptop kecil (misal: lebar > 768px) */
+@media (min-width: 768px) {
+    .login-container {
+        max-width: 500px; /* Lebih besar untuk tablet/laptop kecil */
+        padding: 40px; /* Padding lebih besar */
+        margin: 80px auto; /* Margin atas/bawah lebih besar */
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.6), 0 0 50px rgba(0, 255, 255, 0.3);
+    }
+}
+
+/* Untuk ukuran laptop besar dan desktop (misal: lebar > 1024px) */
+@media (min-width: 1024px) {
+    .login-container {
+        max-width: 600px; /* Lebih besar untuk desktop */
+        padding: 50px; /* Padding lebih besar lagi */
+        margin: 100px auto; /* Margin atas/bawah lebih besar lagi */
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 0 60px rgba(0, 255, 255, 0.4);
+    }
+}
+
+
+h2 {
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    letter-spacing: 2px;
+}
+
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: left;
 }
+
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
+    color: #00aaff;
+    text-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+    font-size: 1.1em;
 }
+
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 12px;
+    background-color: #1a1a1a;
+    border: 1px solid #00aaff;
     border-radius: 4px;
-    box-sizing: border-box; /* Ensures padding doesn't increase width */
+    box-sizing: border-box;
+    color: #e0e0e0;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+}
+
 button {
-    background-color: #4CAF50;
+    background-color: #00aaff;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+    font-size: 1.2em;
+    margin-top: 25px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
 }
+
 button:hover {
-    background-color: #45a049;
+    background-color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.5);
 }
+
 .error-message {
-    color: red;
-    margin-top: 10px;
-    white-space: pre-wrap; /* Agar newline di pesan error bisa tampil */
+    color: #ff0000;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    margin-top: 15px;
+    font-size: 0.95em;
+    white-space: pre-wrap;
 }
 </style>
